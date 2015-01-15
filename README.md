@@ -31,6 +31,7 @@ server.methods.locals("sayHi", function(name) {
 });
 ```
 
+Using in jade template
 ```jade
 title #{siteTitle}
 
