@@ -14,7 +14,7 @@ Add server method "locals" to add global variables and functions for all templat
 plugins = [];
 
 plugins.push({
-  register: require("./lib/hapi-locals")
+  register: require("hapi-locals")
 });
 
 server.register(plugins, function(err) {

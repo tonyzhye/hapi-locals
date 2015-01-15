@@ -1,6 +1,6 @@
 {
   "name": "hapi-locals",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Hapi plugin to add local variables and functions to all templates rendered. like app.locals in expressjs",
   "main": "index.js",
   "repository": {
@@ -20,7 +20,7 @@
     "url": "https://github.com/tonyzhye/hapi-locals/issues"
   },
   "dependencies": {
-    "hoek": "~1.4.x"
+    "hoek": "^1.4.x"
   },
   "devDependencies": {
     "coffee-script": ">= 1.3",
