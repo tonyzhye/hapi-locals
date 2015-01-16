@@ -1,3 +1,4 @@
 Cakefile
 src/
 test/
+.npmignore
