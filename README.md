@@ -26,14 +26,19 @@ server.register(plugins, function(err) {
 // set local variable or function
 server.methods.locals("siteTitle", "My SiteTitle");
 
+server.methods.locals("cacheVer", "1922");
+
 server.methods.locals("sayHi", function(name) {
   return "Hello " + name;
 });
+
 ```
 
 Using in jade template
 ```jade
 title #{siteTitle}
+
+link(rel='stylesheet', href='/public/css/main.css?#{cacheVer}')
 
 p!= sayHi("Tony")
 ```
