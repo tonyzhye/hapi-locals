@@ -17,6 +17,14 @@ plugins.push({
   register: require("hapi-locals")
 });
 
+// or, with hoek merge options
+plugins.push({
+  register: require('hapi-locals'),
+  options: {
+    isMergeArrays: false
+  }
+});
+
 server.register(plugins, function(err) {
   if (err) {
     throw err;
@@ -42,3 +50,13 @@ link(rel='stylesheet', href='/public/css/main.css?#{cacheVer}')
 
 p!= sayHi("Tony")
 ```
+
+## Plugin Options
+
+hapi-locals use [hoek.merge] (https://github.com/hapijs/hoek#mergetarget-source-isnulloverride-ismergearrays) to merge the context, you can set the merge parameters in options 
+
+### isNullOverride
+default to true
+
+### isMergeArrays
+default to true
