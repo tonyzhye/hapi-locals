@@ -18,16 +18,18 @@ exports.register = (server, options, next) ->
 
   server.ext "onPostHandler", (request, reply) ->
     response = request.response
+    destContext = {}
     if response.variety is "view"
-      response.source.context = Hoek.merge(context, 
-                                           response.source.context or {}, 
-                                           options.isNullOverride, 
-                                           options.isMergeArrays)
+      Hoek.merge(destContext, context)
+      Hoek.merge(destContext,
+        response.source.context or {},
+        options.isNullOverride,
+        options.isMergeArrays)
+      response.source.context = destContext
 
     return reply.continue()
 
   return next()
-  
-exports.register.attributes = 
-  pkg: require("../package.json")
 
+exports.register.attributes =
+  pkg: require("../package.json")
