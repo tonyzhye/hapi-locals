@@ -20,7 +20,9 @@ exports.register = (server, options, next) ->
     response = request.response
     destContext = {}
     if response.variety is "view"
-      Hoek.merge(destContext, context)
+      Hoek.merge(destContext, context,
+        options.isNullOverride,
+        options.isMergeArrays)
       Hoek.merge(destContext,
         response.source.context or {},
         options.isNullOverride,
